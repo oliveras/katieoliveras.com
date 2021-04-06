@@ -24,6 +24,36 @@ namespace KatieOliveras.Web {
   public class Startup {
 
     /*==========================================================================================================================
+    | CONSTRUCTOR
+    \-------------------------------------------------------------------------------------------------------------------------*/
+    /// <summary>
+    ///   Constructs a new instances of the <see cref="Startup"/> class. Accepts an <see cref="IConfiguration"/>.
+    /// </summary>
+    /// <param name="configuration">
+    ///   The shared <see cref="IConfiguration"/> dependency.
+    /// </param>
+    public Startup(IConfiguration configuration, IWebHostEnvironment webHostEnvironment) {
+      Configuration             = configuration;
+      HostingEnvironment        = webHostEnvironment;
+    }
+
+    /*==========================================================================================================================
+    | PROPERTY: CONFIGURATION
+    \-------------------------------------------------------------------------------------------------------------------------*/
+    /// <summary>
+    ///   Provides a (public) reference to the application's <see cref="IConfiguration"/> service.
+    /// </summary>
+    public IConfiguration Configuration { get; }
+
+    /*==========================================================================================================================
+    | PROPERTY: HOSTING ENVIRONMENT
+    \-------------------------------------------------------------------------------------------------------------------------*/
+    /// <summary>
+    ///   Provides a (public) reference to the application's <see cref="IWebHostEnvironment"/> service.
+    /// </summary>
+    public IWebHostEnvironment HostingEnvironment { get; }
+
+    /*==========================================================================================================================
     | METHOD: CONFIGURE (SERVICES)
     \-------------------------------------------------------------------------------------------------------------------------*/
     /// <summary>
