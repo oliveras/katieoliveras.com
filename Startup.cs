@@ -9,6 +9,7 @@ using System.Threading.Tasks;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Http;
+using Microsoft.AspNetCore.Rewrite;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
@@ -93,6 +94,15 @@ namespace KatieOliveras.Web {
       if (env.IsDevelopment()) {
         app.UseDeveloperExceptionPage();
       }
+
+      /*------------------------------------------------------------------------------------------------------------------------
+      | Configure: Redirect
+      \-----------------------------------------------------------------------------------------------------------------------*/
+      app.UseRewriter(
+        new RewriteOptions()
+          .AddRedirectToNonWwwPermanent()
+          .AddRedirectToHttpsPermanent()
+      );
 
       /*------------------------------------------------------------------------------------------------------------------------
       | Configure: Server defaults
