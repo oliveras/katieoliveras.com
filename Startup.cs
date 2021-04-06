@@ -93,6 +93,7 @@ namespace KatieOliveras.Web {
       | Configure: Server defaults
       \-----------------------------------------------------------------------------------------------------------------------*/
       app.UseHttpsRedirection();
+      app.UseDefaultFiles();
       app.UseStaticFiles();
       app.UseRouting();
       app.UseCors("default");
