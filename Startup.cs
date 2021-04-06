@@ -71,6 +71,11 @@ namespace KatieOliveras.Web {
         mvcBuilder.AddRazorRuntimeCompilation();
       }
 
+      /*------------------------------------------------------------------------------------------------------------------------
+      | Configure: Razor Pages
+      \-----------------------------------------------------------------------------------------------------------------------*/
+      services.AddRazorPages();
+
     }
 
     /*==========================================================================================================================
@@ -93,6 +98,7 @@ namespace KatieOliveras.Web {
       | Configure: Server defaults
       \-----------------------------------------------------------------------------------------------------------------------*/
       app.UseHttpsRedirection();
+      app.UseDefaultFiles();
       app.UseStaticFiles();
       app.UseRouting();
       app.UseCors("default");
@@ -101,9 +107,8 @@ namespace KatieOliveras.Web {
       | Configure: Routes
       \-----------------------------------------------------------------------------------------------------------------------*/
       app.UseEndpoints(endpoints => {
-        endpoints.MapGet("/", async context => {
-          await context.Response.WriteAsync("Hello World!");
-        });
+        endpoints.MapControllers();
+        endpoints.MapRazorPages();
       });
 
     }
