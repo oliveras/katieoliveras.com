@@ -66,6 +66,11 @@ namespace KatieOliveras.Web {
       \-----------------------------------------------------------------------------------------------------------------------*/
       var mvcBuilder = services.AddControllersWithViews();
 
+      //Conditionally add runtime compilation in development
+      if (HostingEnvironment.IsDevelopment()) {
+        mvcBuilder.AddRazorRuntimeCompilation();
+      }
+
     }
 
     /*==========================================================================================================================
