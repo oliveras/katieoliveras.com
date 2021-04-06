@@ -60,6 +60,12 @@ namespace KatieOliveras.Web {
     ///   Provides configuration of services. This method is called by the runtime to bootstrap the server configuration.
     /// </summary>
     public void ConfigureServices(IServiceCollection services) {
+
+      /*------------------------------------------------------------------------------------------------------------------------
+      | Configure: MVC
+      \-----------------------------------------------------------------------------------------------------------------------*/
+      var mvcBuilder = services.AddControllersWithViews();
+
     }
 
     /*==========================================================================================================================
@@ -81,7 +87,10 @@ namespace KatieOliveras.Web {
       /*------------------------------------------------------------------------------------------------------------------------
       | Configure: Server defaults
       \-----------------------------------------------------------------------------------------------------------------------*/
+      app.UseHttpsRedirection();
+      app.UseStaticFiles();
       app.UseRouting();
+      app.UseCors("default");
 
       /*------------------------------------------------------------------------------------------------------------------------
       | Configure: Routes
