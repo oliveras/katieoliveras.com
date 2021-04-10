@@ -1,0 +1,18 @@
+﻿<!-- ======================================================================================================================= -->
+<!-- Top Menu Navigation -->
+
+<nav>
+  <ul class="nav">
+    @foreach (var link in Site.Navigation) {
+      <li class="nav @(isActive(link.Key)? "active" : "")"><a href="/@link.Key">@link.Value</a></li>
+    }
+  </ul>
+</nav>
+
+<!-- ======================================================================================================================= -->
+
+@{
+
+  bool isActive(string key) => Context.Request.Path.ToString().StartsWith(key, StringComparison.OrdinalIgnoreCase);
+
+}
